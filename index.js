@@ -31,8 +31,10 @@ app.get('/api/notes/:id', (request, response, next) => {
 })
 
 
-app.get('/api/notes', (req, res) => {
-  Note.find({}).then(notes => res.json(notes))
+app.get('/api/notes', (req, res, next) => {
+  Note.find({})
+  .then(notes => res.json(notes))
+  .catch(error => next(error))
 })
 
 

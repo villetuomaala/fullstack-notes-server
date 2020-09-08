@@ -10,7 +10,8 @@
     "build:ui": "rm -rf build && cd ../notes-frontend && npm run build --prod && cp -r build ../notes-server/",
     "deploy": "git push heroku master",
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy",
-    "logs:prod": "heroku logs --tail"
+    "logs:prod": "heroku logs --tail",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,7 @@
   "devDependencies": {
     "@types/express": "^4.17.7",
     "@types/mongoose": "^5.7.36",
+    "eslint": "^7.8.1",
     "nodemon": "^2.0.2"
   }
 }
